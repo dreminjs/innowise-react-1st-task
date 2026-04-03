@@ -14,6 +14,7 @@ export type TFindPostsByUserIdQueryParams = Omit<
 export interface IPostsStore {
   tag: TSlug;
   searchQuery: string;
+  postIdToDelete: number | null;
 }
 
 export interface IPost {

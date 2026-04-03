@@ -1,9 +1,12 @@
 import { FC } from "react";
-import { IPost } from "../../model/posts.interfaces";
-import styles from "./Posts.module.css";
+import { IPost } from "../../../model/posts.interfaces";
+import styles from "../Posts.module.css";
 import { Link } from "react-router";
 
-type TPostsItemProps = IPost;
+type TPostsItemProps = IPost & {
+  isAuthor: boolean;
+  actions?: React.ReactNode;
+};
 
 export const PostsItem: FC<TPostsItemProps> = ({
   title,
@@ -12,6 +15,8 @@ export const PostsItem: FC<TPostsItemProps> = ({
   reactions,
   views,
   userId,
+  isAuthor,
+  actions,
 }) => {
   return (
     <li className={styles.card}>
@@ -25,16 +30,20 @@ export const PostsItem: FC<TPostsItemProps> = ({
         ))}
       </div>
       <div className={styles.footer}>
-        <div className={styles.stats}>
+        <div className={styles.left}>
           <div className={styles.statItem}>
             <span>👍</span> {reactions.likes}
           </div>
           <div className={styles.statItem}>
             <span>👁️</span> {views}
           </div>
+          {actions}
         </div>
-        <Link to={`/users/${userId}`} className={styles.author}>
-          Пользователь {userId}
+        <Link
+          to={isAuthor ? `/profile` : `/users/${userId}`}
+          className={styles.author}
+        >
+          {isAuthor ? "Вы" : `Пользователь ${userId}`}
         </Link>
       </div>
     </li>

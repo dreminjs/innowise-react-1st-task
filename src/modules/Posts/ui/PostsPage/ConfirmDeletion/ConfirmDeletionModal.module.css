@@ -1,0 +1,61 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 320px;
+    text-align: center;
+}
+
+.title {
+    margin: 0 0 16px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.actions > li {
+    flex: 1;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btnDelete {
+    background-color: #ff3b30;
+    color: #fff;
+    border: none;
+}
+
+.btnDelete:hover {
+    background-color: #e0352b;
+}
+
+.btnCancel {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.btnCancel:hover {
+    background-color: #e8e8e8;
+}

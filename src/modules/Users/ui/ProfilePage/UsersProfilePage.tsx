@@ -17,6 +17,7 @@ export const UsersProfilePage = () => {
       ) : (
         <div>Такого пользователя не существует</div>
       )}
+      {isLoading && <div>Загрузка...</div>}
     </div>
   );
 };

@@ -5,6 +5,8 @@ import {
   TFindPostsByUserIdQueryParams,
   TFindPostsQueryParams,
 } from "../model/posts.interfaces";
+import { setPostIdToDelete } from "../model/postsSlice";
+import { addNotification } from "@modules/Notifications";
 
 export const postsApi = createApi({
   reducerPath: "postsApi",
@@ -32,6 +34,32 @@ export const postsApi = createApi({
     getPostTags: builder.query({
       query: () => "/tags",
     }),
+    deletePost: builder.mutation({
+      query: (postId) => ({
+        url: `/posts/${postId}`,
+        method: "DELETE",
+      }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          dispatch(
+            addNotification({
+              type: "success",
+              message: "Успешно",
+            }),
+          );
+        } catch (error) {
+          dispatch(
+            addNotification({
+              type: "error",
+              message: "Ошибка",
+            }),
+          );
+        } finally {
+          dispatch(setPostIdToDelete(null));
+        }
+      },
+    }),
   }),
 });
 
@@ -39,4 +67,5 @@ export const {
   useGetPostsQuery,
   useGetPostTagsQuery,
   useGetPostsByUserIdQuery,
+  useDeletePostMutation,
 } = postsApi;

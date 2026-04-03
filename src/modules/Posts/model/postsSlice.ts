@@ -4,6 +4,7 @@ import { IPostsStore } from "./posts.interfaces";
 const initialState: IPostsStore = {
   tag: "",
   searchQuery: "",
+  postIdToDelete: null,
 };
 
 export const postsSlice = createSlice({
@@ -22,7 +23,10 @@ export const postsSlice = createSlice({
         state.searchQuery = "";
       }
     },
+    setPostIdToDelete: (state, action: PayloadAction<number | null>) => {
+      state.postIdToDelete = action.payload;
+    },
   },
 });
 
-export const { setSearchQuery, setTag } = postsSlice.actions;
+export const { setSearchQuery, setTag, setPostIdToDelete } = postsSlice.actions;
