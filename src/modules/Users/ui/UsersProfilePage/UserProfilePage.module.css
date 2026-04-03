@@ -1,0 +1,77 @@
+.userCard {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    max-width: 400px;
+    transition: all 0.2s ease;
+}
+
+.userCard:hover {
+    border-color: #d1d1d1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #f5f5f5;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.fullName {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.username {
+    font-size: 0.9rem;
+    color: #007aff;
+    font-weight: 500;
+}
+
+.email {
+    font-size: 0.85rem;
+    color: #666;
+    text-decoration: none;
+    margin-top: 4px;
+}
+
+.email:hover {
+    text-decoration: underline;
+}
+
+.badge {
+    align-self: flex-start;
+    margin-top: 6px;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.male {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.female {
+    background-color: #fce4ec;
+    color: #c2185b;
+}

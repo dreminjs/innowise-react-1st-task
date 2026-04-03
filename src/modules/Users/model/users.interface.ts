@@ -6,6 +6,18 @@ export interface IUser {
   lastName: string;
   gender: string;
   image: string;
+  address: {
+    address: string;
+    city: string;
+    state: string;
+    stateCode: string;
+    postalCode: string;
+    coordinates: {
+      lat: number;
+      lng: number;
+    };
+    country: string;
+  };
 }
 
 export interface IUsersStore {

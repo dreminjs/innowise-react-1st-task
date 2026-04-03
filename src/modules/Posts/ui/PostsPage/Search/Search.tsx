@@ -1,10 +1,20 @@
 import { TagsList } from "@modules/Tags";
+import { useSearch } from "../../../model/useSearch";
+import styles from "./Search.module.css";
 
 export const Search = () => {
+  const { searchQuery, tag, handleSearch, handleSetTag } = useSearch();
+
   return (
     <div>
-      <input type="text" placeholder="Search..." />
-      <TagsList />
+      <input
+        className={styles.searchInput}
+        type="text"
+        placeholder="Search..."
+        value={searchQuery}
+        onChange={handleSearch}
+      />
+      <TagsList choosedTag={tag} onTagClick={handleSetTag} />
     </div>
   );
 };

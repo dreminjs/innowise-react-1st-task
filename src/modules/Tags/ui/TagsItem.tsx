@@ -1,12 +1,27 @@
 import { FC } from "react";
-import { ITag } from "../model/tags.interface";
+import { ITag, TSlug } from "../model/tags.interface";
 import styles from "./Tags.module.css";
-type TTagsItemProps = ITag;
+import clsx from "clsx";
+type TTagsItemProps = ITag & {
+  onClick: (tag: TSlug) => void;
+  choosed: boolean;
+};
 
-export const TagsItem: FC<TTagsItemProps> = ({ name, slug }) => {
+export const TagsItem: FC<TTagsItemProps> = ({
+  name,
+  slug,
+  onClick,
+  choosed,
+}) => {
+  const handleClick = () => {
+    onClick(slug);
+  };
+
   return (
-    <li className={styles.tagListItem}>
-      <button>
+    <li
+      className={clsx(styles.tagListItem, choosed && styles.tagListItemActive)}
+    >
+      <button onClick={handleClick}>
         <span>{name}</span>
       </button>
     </li>

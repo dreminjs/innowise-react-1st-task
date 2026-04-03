@@ -12,7 +12,11 @@ export const usersApi = createApi({
       query: () => "/user/me",
       providesTags: [USERS_TAG, GET_ME_TAG],
     }),
+    getUser: builder.query<IUser, number>({
+      query: (id) => `/user/${id}`,
+      providesTags: [USERS_TAG],
+    }),
   }),
 });
 
-export const { useGetMeQuery } = usersApi;
+export const { useGetMeQuery, useGetUserQuery } = usersApi;

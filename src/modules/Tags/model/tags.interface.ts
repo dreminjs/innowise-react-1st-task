@@ -7,5 +7,5 @@ export interface ITag {
 }
 
 export interface ITagsState {
-  tags: TSlug[];
+  tag: TSlug | null;
 }

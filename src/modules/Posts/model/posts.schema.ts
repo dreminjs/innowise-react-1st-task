@@ -1,9 +1,7 @@
+import { paginationSchema } from "@shared/model/schemas/api.schema";
 import z from "zod";
 
-export const findPostsByQueryParamsSchema = z.object({
+export const findPostsByQueryParamsSchema = paginationSchema.extend({
   q: z.string().optional(),
-});
-
-export const findPostsByTagsQueryParamsSchema = z.object({
-  tags: z.string().optional(),
+  tag: z.string().optional(),
 });

@@ -3,6 +3,7 @@ import { PostsPage } from "@modules/Posts";
 import { createBrowserRouter } from "react-router";
 import { BaseLayout } from "../layouts/BaseLayout";
 import { GuestProvider } from "../providers/GuestProvider";
+import { UsersProfilePage } from "@modules/Users";
 
 export const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         Component: PostsPage,
+      },
+      {
+        path: "/users/:id",
+        Component: UsersProfilePage,
       },
       {
         Component: GuestProvider,
