@@ -1,7 +1,8 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQuery } from "@shared/index";
 import {
-  IPostResponse,
+  IPostsResponse,
+  TFindPostsByUserIdQueryParams,
   TFindPostsQueryParams,
 } from "../model/posts.interfaces";
 
@@ -9,7 +10,7 @@ export const postsApi = createApi({
   reducerPath: "postsApi",
   baseQuery: baseQuery,
   endpoints: (builder) => ({
-    getPosts: builder.query<IPostResponse, TFindPostsQueryParams>({
+    getPosts: builder.query<IPostsResponse, TFindPostsQueryParams>({
       query: (dto) => {
         const limit = dto.limit ?? 10;
         if (dto.tag) {
@@ -21,10 +22,21 @@ export const postsApi = createApi({
         }
       },
     }),
+    getPostsByUserId: builder.query<
+      IPostsResponse,
+      TFindPostsByUserIdQueryParams
+    >({
+      query: (dto) =>
+        `/posts/user/${dto.userId}?limit=${dto.limit ?? 10}&skip=${dto.skip ?? 0}`,
+    }),
     getPostTags: builder.query({
       query: () => "/tags",
     }),
   }),
 });
 
-export const { useGetPostsQuery, useGetPostTagsQuery } = postsApi;
+export const {
+  useGetPostsQuery,
+  useGetPostTagsQuery,
+  useGetPostsByUserIdQuery,
+} = postsApi;

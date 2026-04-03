@@ -6,6 +6,11 @@ export type TFindPostsQueryParams = z.infer<
   typeof findPostsByQueryParamsSchema
 >;
 
+export type TFindPostsByUserIdQueryParams = Omit<
+  TFindPostsQueryParams,
+  "tag" | "q"
+> & { userId: number };
+
 export interface IPostsStore {
   tag: TSlug;
   searchQuery: string;
@@ -24,7 +29,7 @@ export interface IPost {
   userId: number;
 }
 
-export interface IPostResponse {
+export interface IPostsResponse {
   posts: IPost[];
   total: number;
   skip: number;

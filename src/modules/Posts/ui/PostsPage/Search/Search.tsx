@@ -1,5 +1,5 @@
 import { TagsList } from "@modules/Tags";
-import { useSearch } from "../../../model/useSearch";
+import { useSearch } from "../../../model/hooks/useSearch";
 import styles from "./Search.module.css";
 
 export const Search = () => {

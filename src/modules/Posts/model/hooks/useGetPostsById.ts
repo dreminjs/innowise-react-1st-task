@@ -1,16 +1,13 @@
-import { useAppSelector } from "@app/store/hooks";
-import { useGetPostsQuery } from "../api/queries";
+import { useGetPostsByUserIdQuery } from "@modules/Posts";
 import { useState } from "react";
 
-export const useGetPosts = () => {
+export const useGetPostsByUserId = (userId: number) => {
   const limit = 10;
   const [skip, setSkip] = useState(0);
-  const { searchQuery, tag } = useAppSelector((state) => state.posts);
-  const { data, isLoading, isError } = useGetPostsQuery({
-    q: searchQuery,
-    tag,
+  const { data, isLoading, isError } = useGetPostsByUserIdQuery({
     skip,
     limit,
+    userId,
   });
 
   const handleChangePage = (page: number) => {

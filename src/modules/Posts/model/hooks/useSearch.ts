@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@app/store/hooks";
 import { ChangeEvent, useState } from "react";
-import { setSearchQuery, setTag } from "./postsSlice";
+import { setSearchQuery, setTag } from "../postsSlice";
 
 export const useSearch = () => {
   const dispatch = useAppDispatch();

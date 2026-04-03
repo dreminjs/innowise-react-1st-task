@@ -3,7 +3,8 @@ import { PostsPage } from "@modules/Posts";
 import { createBrowserRouter } from "react-router";
 import { BaseLayout } from "../layouts/BaseLayout";
 import { GuestProvider } from "../providers/GuestProvider";
-import { UsersProfilePage } from "@modules/Users";
+import { MyProfilePage, UsersProfilePage } from "@modules/Users";
+import { ProtectedRoutesProvider } from "../providers/ProtectedRoutesProvider";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,15 @@ export const router = createBrowserRouter([
           {
             path: "/login",
             Component: LoginPage,
+          },
+        ],
+      },
+      {
+        Component: ProtectedRoutesProvider,
+        children: [
+          {
+            path: "/profile",
+            Component: MyProfilePage,
           },
         ],
       },
