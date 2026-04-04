@@ -70,5 +70,5 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
-  devtool: process.env.NODE_ENV === "production" ? false : "eval-source-map",
+  devtool: false,
 };
