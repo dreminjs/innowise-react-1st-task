@@ -25,3 +25,19 @@
 .tagListItemActive {
     background-color: var(--color-border-tertiary);
 }
+
+.postTagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.postTag {
+    font-size: 0.75rem;
+    background-color: #f0f2f5;
+    color: #65676b;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+}

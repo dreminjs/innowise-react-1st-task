@@ -19,7 +19,7 @@ export const Posts = () => {
         />
       </main>
       <Pagination
-        totalPages={total || 0}
+        totalPages={total ? Math.ceil(total / limit) - 1 : 0}
         currentPage={skip === 0 ? 1 : skip / limit}
         onPageChange={onChangePage}
       />

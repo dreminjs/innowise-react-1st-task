@@ -13,5 +13,14 @@ export const DeleteButton: FC<IDeleteButtonProps> = ({ postId }) => {
     dispatch(setPostIdToDelete(postId));
   };
 
-  return <button onClick={handleDelete}>Delete</button>;
+  return (
+    <button
+      style={{
+        color: "red",
+      }}
+      onClick={handleDelete}
+    >
+      Delete
+    </button>
+  );
 };

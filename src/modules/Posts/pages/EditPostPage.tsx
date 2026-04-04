@@ -13,6 +13,12 @@ export default () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (currentUser?.id !== post?.userId) {
+      navigate("/");
+    }
+  }, [currentUser, post, navigate]);
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -20,12 +26,6 @@ export default () => {
   if (!post) {
     return <div>Не найден</div>;
   }
-
-  useEffect(() => {
-    if (currentUser?.id !== post.userId) {
-      navigate("/");
-    }
-  }, [currentUser, post, navigate]);
 
   return (
     <div>

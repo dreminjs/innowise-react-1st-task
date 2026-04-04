@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { IPost } from "../../model/posts.interfaces";
-import { PostsItem } from "./PostItem/PostsItem";
-import { useAppSelector } from "@app/store/hooks";
+import { PostsItem } from "./PostsItem";
 import styles from "./Posts.module.css";
-import { Actions } from "./PostItem/Actions";
+import { Actions } from "../Actions/Actions";
+import { useGetMeQuery } from "@modules/Users";
 
 interface IPostsListProps {
   data: IPost[];
@@ -16,7 +16,7 @@ export const PostsList: FC<IPostsListProps> = ({
   isLoading,
   isError,
 }) => {
-  const currentUser = useAppSelector((state) => state.users.currentUser);
+  const { data: currentUser } = useGetMeQuery();
   const userId = currentUser?.id;
 
   if (isLoading) return <div>Загрузка...</div>;

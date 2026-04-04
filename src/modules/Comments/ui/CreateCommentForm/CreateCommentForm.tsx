@@ -5,12 +5,18 @@ import { useParams } from "react-router";
 import styles from "./CreateCommentForm.module.css";
 
 export const CreateCommentForm = () => {
-  const { postId } = useParams<{ postId: string }>();
-  const { register, handleSubmit, errors } = useCreateCommentForm();
-  const { isLoading, handleCreateComment } = useCreateComment(Number(postId));
+  const { id: postId } = useParams<{ id: string }>();
+  const { register, handleSubmit, errors, reset } = useCreateCommentForm();
+  const { isLoading, handleCreateComment } = useCreateComment({
+    postId: Number(postId),
+    reset,
+  });
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(handleCreateComment)}>
+    <form
+      className={styles.createCommentForm}
+      onSubmit={handleSubmit(handleCreateComment)}
+    >
       <CreateCommentField
         register={register}
         name="body"

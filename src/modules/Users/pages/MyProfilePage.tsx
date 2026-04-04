@@ -1,10 +1,10 @@
-import { useAppSelector } from "@app/store/hooks";
 import { UserCard } from "../ui/UserCard/UserCard";
 import { UserPosts, ConfirmDeletionModal } from "@modules/Posts";
 import { CreatePostLink } from "../ui/MyProfilePage/CreatePostLink";
+import { useGetMeQuery } from "../api/queries";
 
 export default () => {
-  const currentUser = useAppSelector((state) => state.users.currentUser);
+  const { data: currentUser } = useGetMeQuery();
 
   if (!currentUser) return <div>Вас не существует :(</div>;
 
@@ -12,7 +12,7 @@ export default () => {
     <div>
       <UserCard {...currentUser} id={currentUser?.id} />
       <CreatePostLink />
-      <UserPosts userId={Number(currentUser?.id)} />
+      <UserPosts userId={currentUser?.id} />
       <ConfirmDeletionModal />
     </div>
   );

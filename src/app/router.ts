@@ -6,6 +6,8 @@ import { lazy } from "react";
 
 const PostsPage = lazy(() => import("@modules/Posts/pages/PostsPage"));
 
+const PostPage = lazy(() => import("@modules/Posts/pages/PostPage"));
+
 const CreatePostPage = lazy(
   () => import("@modules/Posts/pages/CreatePostPage"),
 );
@@ -26,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         Component: PostsPage,
+      },
+      {
+        path: "/posts/:id",
+        Component: PostPage,
       },
       {
         path: "/users/:id",

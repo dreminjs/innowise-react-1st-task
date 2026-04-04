@@ -13,4 +13,4 @@ export {
   useGetPostsByUserIdQuery,
 } from "./api/queries";
 export { UserPosts } from "./ui/UsersPost";
-export { ConfirmDeletionModal } from "./ui/PostsPage/ConfirmDeletion/ConfirmDeletionModal";
+export { ConfirmDeletionModal } from "./ui/ConfirmDeletion/ConfirmDeletionModal";

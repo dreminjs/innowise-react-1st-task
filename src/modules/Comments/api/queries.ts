@@ -16,7 +16,7 @@ export const commentsApi = createApi({
     }),
     createComment: builder.mutation({
       query: (comment: CreateCommentDto) => ({
-        url: "/comments",
+        url: "/comments/add",
         method: "POST",
         body: comment,
       }),

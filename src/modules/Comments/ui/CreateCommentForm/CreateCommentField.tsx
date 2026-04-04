@@ -15,7 +15,7 @@ export const CreateCommentField: FC<ICreateCommentFieldProps> = ({
   error,
 }) => {
   return (
-    <div className={styles.field}>
+    <div className={styles.createCommentField}>
       <textarea
         {...register(name)}
         className={styles.textarea}

@@ -7,6 +7,7 @@ export const useCreateCommentForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<TCreateCommentForm>({
     resolver: zodResolver(createCommentFormSchema),
@@ -16,5 +17,6 @@ export const useCreateCommentForm = () => {
     register,
     handleSubmit,
     errors,
+    reset,
   };
 };
