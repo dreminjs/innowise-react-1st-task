@@ -1,9 +1,12 @@
-import { PostsPage } from "@modules/Posts";
 import { createBrowserRouter } from "react-router";
 import { BaseLayout } from "../layouts/BaseLayout";
 import { GuestProvider } from "../providers/GuestProvider";
 import { ProtectedRoutesProvider } from "../providers/ProtectedRoutesProvider";
 import { lazy } from "react";
+
+const PostsPage = lazy(() =>
+  import("@modules/Posts").then((module) => ({ default: module.PostsPage })),
+);
 
 const CreatePostPage = lazy(() =>
   import("@modules/Posts").then((module) => ({

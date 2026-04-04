@@ -4,7 +4,10 @@ import { LogoutButton } from "./LogoutButton";
 import styles from "./Navigation.module.css";
 
 export const NavigationList = () => {
-  const { data } = useGetMeQuery();
+  const { data, isLoading } = useGetMeQuery();
+
+  if (isLoading) return <div>Загрузка...</div>;
+
   return (
     <nav>
       <ul className={styles.navigationList}>

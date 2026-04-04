@@ -64,5 +64,5 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
-  devtool: "inline-source-map",
+  devtool: process.env.NODE_ENV === "production" ? false : "eval-source-map",
 };
