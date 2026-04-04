@@ -1,5 +1,5 @@
 import { Comments } from "@modules/Comments/ui/Comments";
-import { Post } from "../ui/PostPage/Post";
+import { Post } from "../ui/Post/Post";
 import { useParams } from "react-router";
 
 export default () => {

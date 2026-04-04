@@ -9,8 +9,8 @@ export const Posts = () => {
     useGetPosts();
 
   return (
-    <div className={styles.wrapper}>
-      <Search />
+    <div>
+      <Search onChangePage={onChangePage} />
       <main className={styles.mainContent}>
         <PostsList
           isError={isError}

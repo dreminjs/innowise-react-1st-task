@@ -1,4 +1,4 @@
-import { EditPostForm } from "../ui/EditPostPage/EditPostForm";
+import { EditPostForm } from "../ui/EditPostForm/EditPostForm";
 import { useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 import { useGetMeQuery } from "@modules/Users";

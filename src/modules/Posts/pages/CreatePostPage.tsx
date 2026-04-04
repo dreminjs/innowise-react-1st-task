@@ -1,4 +1,4 @@
-import { CreatePostForm } from "../ui/CreatePostPage/CreatePostForm";
+import { CreatePostForm } from "../ui/CreatePostForm/CreatePostForm";
 
 export default () => {
   return (
