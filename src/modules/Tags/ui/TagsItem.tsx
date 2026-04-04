@@ -21,7 +21,7 @@ export const TagsItem: FC<TTagsItemProps> = ({
     <li
       className={clsx(styles.tagListItem, choosed && styles.tagListItemActive)}
     >
-      <button onClick={handleClick}>
+      <button type="button" onClick={handleClick}>
         <span>{name}</span>
       </button>
     </li>

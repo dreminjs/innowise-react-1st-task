@@ -1,6 +1,6 @@
 import { IUser } from "@modules/Users/model/users.interface";
 import { FC } from "react";
-import styles from "./UserProfilePage.module.css";
+import styles from "./UserCard.module.css";
 
 type TUserCardProps = IUser;
 

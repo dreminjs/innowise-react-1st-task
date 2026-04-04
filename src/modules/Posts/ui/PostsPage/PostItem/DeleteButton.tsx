@@ -10,7 +10,6 @@ export const DeleteButton: FC<IDeleteButtonProps> = ({ postId }) => {
   const dispatch = useAppDispatch();
 
   const handleDelete = () => {
-    console.log(postId);
     dispatch(setPostIdToDelete(postId));
   };
 

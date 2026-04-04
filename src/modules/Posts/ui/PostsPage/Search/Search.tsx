@@ -3,7 +3,7 @@ import { useSearch } from "../../../model/hooks/useSearch";
 import styles from "./Search.module.css";
 
 export const Search = () => {
-  const { searchQuery, tag, handleSearch, handleSetTag } = useSearch();
+  const { searchQuery, tagQuery, handleSearch, handleSetTag } = useSearch();
 
   return (
     <div>
@@ -14,7 +14,7 @@ export const Search = () => {
         value={searchQuery}
         onChange={handleSearch}
       />
-      <TagsList choosedTag={tag} onTagClick={handleSetTag} />
+      <TagsList choosedTags={tagQuery} onTagClick={handleSetTag} />
     </div>
   );
 };

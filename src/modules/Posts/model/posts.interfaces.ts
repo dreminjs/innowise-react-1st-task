@@ -1,6 +1,6 @@
+import { createPostSchema, findPostsByQueryParamsSchema } from "./posts.schema";
+import { TSlug } from "@modules/Tags/";
 import z from "zod";
-import { findPostsByQueryParamsSchema } from "./posts.schema";
-import { TSlug } from "@modules/Tags/model/tags.interface";
 
 export type TFindPostsQueryParams = z.infer<
   typeof findPostsByQueryParamsSchema
@@ -12,7 +12,7 @@ export type TFindPostsByUserIdQueryParams = Omit<
 > & { userId: number };
 
 export interface IPostsStore {
-  tag: TSlug;
+  tagQuery: TSlug;
   searchQuery: string;
   postIdToDelete: number | null;
 }
@@ -36,3 +36,10 @@ export interface IPostsResponse {
   skip: number;
   limit: number;
 }
+
+export type TCreatePostDto = z.infer<typeof createPostSchema> & {
+  tags: TSlug[];
+  userId: number;
+};
+
+export type TCreatePostSchema = z.infer<typeof createPostSchema>;

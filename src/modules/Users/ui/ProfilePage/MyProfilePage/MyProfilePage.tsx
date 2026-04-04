@@ -1,6 +1,7 @@
-import { useAppDispatch, useAppSelector } from "@app/store/hooks";
-import { UserCard } from "./UserCard";
+import { useAppSelector } from "@app/store/hooks";
+import { UserCard } from "../UserCard/UserCard";
 import { UserPosts, ConfirmDeletionModal } from "@modules/Posts";
+import { CreatePostLink } from "./CreatePostLink";
 
 export const MyProfilePage = () => {
   const currentUser = useAppSelector((state) => state.users.currentUser);
@@ -10,6 +11,7 @@ export const MyProfilePage = () => {
   return (
     <div>
       <UserCard {...currentUser} id={currentUser?.id} />
+      <CreatePostLink />
       <UserPosts userId={Number(currentUser?.id)} />
       <ConfirmDeletionModal />
     </div>

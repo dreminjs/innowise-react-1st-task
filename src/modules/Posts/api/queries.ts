@@ -12,6 +12,32 @@ export const postsApi = createApi({
   reducerPath: "postsApi",
   baseQuery: baseQuery,
   endpoints: (builder) => ({
+    createPost: builder.mutation({
+      query: (dto) => ({
+        url: "/posts/add",
+        method: "POST",
+        body: dto,
+      }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          dispatch(
+            addNotification({
+              type: "success",
+              message: "Успешно создан пост",
+            }),
+          );
+        } catch (error) {
+          dispatch(
+            addNotification({
+              type: "error",
+              message: "Не удалось создать пост",
+            }),
+          );
+        }
+      },
+    }),
+
     getPosts: builder.query<IPostsResponse, TFindPostsQueryParams>({
       query: (dto) => {
         const limit = dto.limit ?? 10;
@@ -68,4 +94,5 @@ export const {
   useGetPostTagsQuery,
   useGetPostsByUserIdQuery,
   useDeletePostMutation,
+  useCreatePostMutation,
 } = postsApi;

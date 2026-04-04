@@ -10,5 +10,6 @@ export {
 export { logoutAction } from "./model/actions";
 export { USERS_TAG } from "./model/constants";
 export { GET_ME_TAG } from "./model/constants";
-export { MyProfilePage } from "./ui/ProfilePage/MyProfilePage";
-export { UsersProfilePage } from "./ui/ProfilePage/UsersProfilePage";
+export { MyProfilePage } from "./ui/ProfilePage/MyProfilePage/MyProfilePage";
+export { UsersProfilePage } from "./ui/ProfilePage/UserProfilePage/UserProfilePage";
+export * from "./api/queries";

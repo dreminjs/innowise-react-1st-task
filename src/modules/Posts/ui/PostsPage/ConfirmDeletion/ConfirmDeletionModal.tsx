@@ -1,26 +1,10 @@
-import { useAppDispatch, useAppSelector } from "@app/store/hooks";
-import { useDeletePostMutation } from "@modules/Posts/api/queries";
-import { setPostIdToDelete } from "@modules/Posts/model/postsSlice";
 import { Overlay } from "@shared/index";
 import styles from "./ConfirmDeletionModal.module.css";
-import { createPortal } from "react-dom";
+import { useDeletePost } from "@modules/Posts/model/hooks/useDeletePost";
 
 export const ConfirmDeletionModal = () => {
-  const postIdToDelete = useAppSelector((state) => state.posts.postIdToDelete);
-  const dispatch = useAppDispatch();
-  const [deletePost, { isLoading }] = useDeletePostMutation();
-
-  const handleClose = () => {
-    dispatch(setPostIdToDelete(null));
-  };
-
-  const handleDelete = async () => {
-    if (postIdToDelete) {
-      await deletePost(postIdToDelete);
-      handleClose();
-    }
-  };
-
+  const { postIdToDelete, handleDelete, isLoading, handleClose } =
+    useDeletePost();
   if (!postIdToDelete) return null;
 
   return (

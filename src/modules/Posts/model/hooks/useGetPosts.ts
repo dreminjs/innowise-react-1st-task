@@ -5,10 +5,10 @@ import { useState } from "react";
 export const useGetPosts = () => {
   const limit = 10;
   const [skip, setSkip] = useState(0);
-  const { searchQuery, tag } = useAppSelector((state) => state.posts);
+  const { searchQuery, tagQuery } = useAppSelector((state) => state.posts);
   const { data, isLoading, isError } = useGetPostsQuery({
     q: searchQuery,
-    tag,
+    tag: tagQuery,
     skip,
     limit,
   });

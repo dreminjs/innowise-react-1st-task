@@ -1,7 +1,7 @@
-import { useGetUserQuery } from "../../api/queries";
 import { useParams } from "react-router";
-import { UserCard } from "./UserCard";
+import { UserCard } from "../UserCard/UserCard";
 import { UserPosts } from "@modules/Posts";
+import { useGetUserQuery } from "@modules/Users";
 
 export const UsersProfilePage = () => {
   const { id } = useParams<{ id: string }>();

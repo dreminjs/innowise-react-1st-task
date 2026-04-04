@@ -5,7 +5,7 @@ import { setSearchQuery, setTag } from "../postsSlice";
 export const useSearch = () => {
   const dispatch = useAppDispatch();
 
-  const { searchQuery, tag } = useAppSelector((state) => state.posts);
+  const { searchQuery, tagQuery } = useAppSelector((state) => state.posts);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchQuery(e.target.value));
@@ -17,7 +17,7 @@ export const useSearch = () => {
 
   return {
     searchQuery,
-    tag,
+    tagQuery,
     handleSearch,
     handleSetTag,
   };

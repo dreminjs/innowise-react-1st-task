@@ -6,10 +6,10 @@ import { TagsItem } from "./TagsItem";
 
 interface IProps {
   onTagClick: (tag: string) => void;
-  choosedTag: string;
+  choosedTags: string | string[];
 }
 
-export const TagsList: FC<IProps> = ({ onTagClick, choosedTag }) => {
+export const TagsList: FC<IProps> = ({ onTagClick, choosedTags }) => {
   const { data, isLoading } = useGetTagsQuery();
 
   if (isLoading) {
@@ -20,11 +20,16 @@ export const TagsList: FC<IProps> = ({ onTagClick, choosedTag }) => {
     return <div>Ничего не найдено.</div>;
   }
 
+  const isChoosed = (slug: string) =>
+    Array.isArray(choosedTags)
+      ? choosedTags.includes(slug)
+      : choosedTags === slug;
+
   return (
     <ul className={styles.tagsList}>
       {data.map((tag: ITag) => (
         <TagsItem
-          choosed={tag.slug === choosedTag}
+          choosed={isChoosed(tag.slug)}
           onClick={onTagClick}
           key={tag.slug}
           {...tag}

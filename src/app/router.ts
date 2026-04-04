@@ -5,6 +5,7 @@ import { BaseLayout } from "../layouts/BaseLayout";
 import { GuestProvider } from "../providers/GuestProvider";
 import { MyProfilePage, UsersProfilePage } from "@modules/Users";
 import { ProtectedRoutesProvider } from "../providers/ProtectedRoutesProvider";
+import { CreatePostPage } from "@modules/Posts/";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
           {
             path: "/profile",
             Component: MyProfilePage,
+          },
+          {
+            path: "/posts/create",
+            Component: CreatePostPage,
           },
         ],
       },
