@@ -5,33 +5,41 @@ import { ProtectedRoutesProvider } from "../providers/ProtectedRoutesProvider";
 import { lazy } from "react";
 
 const PostsPage = lazy(() =>
-  import("@modules/Posts").then((module) => ({ default: module.PostsPage })),
+  import("@modules/Posts/ui/PostsPage/PostsPage").then((module) => ({
+    default: module.PostsPage,
+  })),
 );
 
 const CreatePostPage = lazy(() =>
-  import("@modules/Posts").then((module) => ({
+  import("@modules/Posts/ui/CreatePostPage/CreatePostPage").then((module) => ({
     default: module.CreatePostPage,
   })),
 );
 const EditPostPage = lazy(() =>
-  import("@modules/Posts").then((module) => ({ default: module.EditPostPage })),
+  import("@modules/Posts/ui/EditPostPage/EditPostPage").then((module) => ({
+    default: module.EditPostPage,
+  })),
 );
 const UsersProfilePage = lazy(() =>
-  import("@modules/Users").then((module) => ({
-    default: module.UsersProfilePage,
-  })),
+  import("@modules/Users/ui/ProfilePage/UserProfilePage/UserProfilePage").then(
+    (module) => ({
+      default: module.UsersProfilePage,
+    }),
+  ),
 );
 
 const LoginPage = lazy(() =>
-  import("@modules/Login").then((module) => ({
+  import("@modules/Login/ui/LoginPage/LoginPage").then((module) => ({
     default: module.LoginPage,
   })),
 );
 
 const MyProfilePage = lazy(() =>
-  import("@modules/Users").then((module) => ({
-    default: module.MyProfilePage,
-  })),
+  import("@modules/Users/ui/ProfilePage/MyProfilePage/MyProfilePage").then(
+    (module) => ({
+      default: module.MyProfilePage,
+    }),
+  ),
 );
 
 export const router = createBrowserRouter([
