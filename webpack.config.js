@@ -6,8 +6,14 @@ module.exports = {
   entry: "./src/app/index.tsx",
   output: {
     filename: "bundle.[contenthash].js",
+    chunkFilename: "chunks/[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
   },
   devServer: {
     static: "./dist",
