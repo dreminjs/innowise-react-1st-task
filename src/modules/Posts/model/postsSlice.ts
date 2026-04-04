@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IPostsStore } from "./posts.interfaces";
-import { TSlug } from "@modules/Tags";
 
 const initialState: IPostsStore = {
   tagQuery: "",

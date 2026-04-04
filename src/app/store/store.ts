@@ -1,9 +1,11 @@
 import { authApi } from "@modules/Login";
 import { configureStore } from "@reduxjs/toolkit";
-import { usersApi, usersSlice } from "@modules/Users";
+import { usersSlice } from "@modules/Users/model/userSlice";
+import { usersApi } from "@modules/Users/api/queries";
 import { tagsApi } from "@modules/Tags";
-import { notificationSlice } from "@modules/Notifications";
-import { postsSlice, postsApi } from "@modules/Posts";
+import { notificationSlice } from "@modules/Notifications/model/notificationSlice";
+import { postsSlice } from "@modules/Posts/model/postsSlice";
+import { postsApi } from "@modules/Posts/api/queries";
 
 export const store = configureStore({
   reducer: {
