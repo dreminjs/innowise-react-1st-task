@@ -1,11 +1,25 @@
 import { LoginPage } from "@modules/Login";
-import { EditPostPage, PostsPage } from "@modules/Posts";
+import { PostsPage } from "@modules/Posts";
 import { createBrowserRouter } from "react-router";
 import { BaseLayout } from "../layouts/BaseLayout";
 import { GuestProvider } from "../providers/GuestProvider";
-import { MyProfilePage, UsersProfilePage } from "@modules/Users";
+import { MyProfilePage } from "@modules/Users";
 import { ProtectedRoutesProvider } from "../providers/ProtectedRoutesProvider";
-import { CreatePostPage } from "@modules/Posts/";
+import { lazy } from "react";
+
+const CreatePostPage = lazy(() =>
+  import("@modules/Posts").then((module) => ({
+    default: module.CreatePostPage,
+  })),
+);
+const EditPostPage = lazy(() =>
+  import("@modules/Posts").then((module) => ({ default: module.EditPostPage })),
+);
+const UsersProfilePage = lazy(() =>
+  import("@modules/Users").then((module) => ({
+    default: module.UsersProfilePage,
+  })),
+);
 
 export const router = createBrowserRouter([
   {
