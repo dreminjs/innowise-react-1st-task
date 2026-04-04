@@ -1,4 +1,4 @@
-import { CreateCommentField } from "./CreateCommentField";
+import { CommentField } from "../CommentField";
 import { useCreateCommentForm } from "../.../../../model/hooks/useCreateCommentForm";
 import { useCreateComment } from "@modules/Comments/model/hooks/useCreateComment";
 import { useParams } from "react-router";
@@ -17,7 +17,7 @@ export const CreateCommentForm = () => {
       className={styles.createCommentForm}
       onSubmit={handleSubmit(handleCreateComment)}
     >
-      <CreateCommentField
+      <CommentField
         register={register}
         name="body"
         error={errors.body?.message}

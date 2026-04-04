@@ -1,15 +1,15 @@
 import { TCreateCommentForm } from "@modules/Comments/model/comments.interface";
-import { FC } from "react";
 import { UseFormRegister } from "react-hook-form";
-import styles from "./CreateCommentForm.module.css";
+import { FC } from "react";
+import styles from "./CreateCommentForm/CreateCommentForm.module.css";
 
-interface ICreateCommentFieldProps {
+interface ICommentFieldProps {
   register: UseFormRegister<TCreateCommentForm>;
   name: keyof TCreateCommentForm;
   error?: string;
 }
 
-export const CreateCommentField: FC<ICreateCommentFieldProps> = ({
+export const CommentField: FC<ICommentFieldProps> = ({
   register,
   name,
   error,

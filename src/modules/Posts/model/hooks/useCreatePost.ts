@@ -15,7 +15,7 @@ export const useCreatePost = (reset: UseFormReset<TCreatePostSchema>) => {
   const user = useAppSelector((state) => state.users.currentUser);
 
   const handleCreate = async (dto: TCreatePostSchema) => {
-    if (tags.length > 1 && user?.id) {
+    if (tags.length > 0 && user?.id) {
       await createPost({ ...dto, tags, userId: user.id }).finally(() => {
         handleReset();
         reset();

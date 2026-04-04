@@ -1,8 +1,8 @@
 import { Pagination } from "@components/Pagination";
 import { CommentsList } from "./CommentsList";
-import { FC } from "react";
 import { useGetCommentsByPostId } from "../model/hooks/useGetCommentsByPostId";
 import { CreateCommentForm } from "./CreateCommentForm/CreateCommentForm";
+import { FC } from "react";
 
 interface ICommentsProps {
   postId: number;

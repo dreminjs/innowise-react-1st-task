@@ -10,8 +10,9 @@ export type CreateCommentDto = TCreateCommentForm & {
   userId: number;
 };
 
-export type UpdateCommentDto = CreateCommentDto & {
+export type UpdateCommentDto = {
   id: number;
+  body: string;
 };
 
 export interface IComment {
