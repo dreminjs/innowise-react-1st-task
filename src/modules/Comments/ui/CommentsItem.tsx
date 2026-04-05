@@ -6,7 +6,7 @@ import { UpdateCommentForm } from "./UpdateComment/UpdateCommentForm";
 import { useDeleteCommentMutation } from "../api/queries";
 
 type TCommentsItemProps = IComment & {
-  currentUserId: number;
+  currentUserId?: number;
 };
 
 export const CommentsItem: FC<TCommentsItemProps> = ({

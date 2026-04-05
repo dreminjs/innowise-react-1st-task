@@ -16,7 +16,7 @@ export const CommentsList: FC<ICommentsListProps> = ({ comments }) => {
         <CommentsItem
           key={comment.id}
           {...comment}
-          currentUserId={currentUser!.id}
+          currentUserId={currentUser?.id}
         />
       ))}
     </ul>
