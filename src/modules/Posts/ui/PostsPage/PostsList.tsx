@@ -27,9 +27,7 @@ export const PostsList: FC<IPostsListProps> = ({
     <ul className={styles.postsList}>
       {data.map((post) => (
         <PostsItem
-          {...(userId === post.userId
-            ? { actions: <Actions postId={post.id} /> }
-            : {})}
+          actions={userId === post.userId ? <Actions postId={post.id} /> : null}
           isAuthor={userId === post.userId}
           key={post.id}
           {...post}

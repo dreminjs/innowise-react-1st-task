@@ -6,7 +6,7 @@ import { PostTags } from "@modules/Tags";
 
 type TPostsItemProps = IPost & {
   isAuthor: boolean;
-  actions?: React.ReactNode;
+  actions: React.ReactNode;
 };
 
 export const PostsItem: FC<TPostsItemProps> = ({
