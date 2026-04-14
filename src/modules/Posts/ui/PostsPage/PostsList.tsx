@@ -28,7 +28,6 @@ export const PostsList: FC<IPostsListProps> = ({
       {data.map((post) => (
         <PostsItem
           actions={userId === post.userId ? <Actions postId={post.id} /> : null}
-          isAuthor={userId === post.userId}
           key={post.id}
           {...post}
         />

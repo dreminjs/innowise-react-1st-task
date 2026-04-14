@@ -5,8 +5,7 @@ import { Link } from "react-router";
 import { PostTags } from "@modules/Tags";
 
 type TPostsItemProps = IPost & {
-  isAuthor: boolean;
-  actions: React.ReactNode;
+  actions: React.ReactNode | null;
 };
 
 export const PostsItem: FC<TPostsItemProps> = ({
@@ -16,7 +15,6 @@ export const PostsItem: FC<TPostsItemProps> = ({
   reactions,
   views,
   userId,
-  isAuthor,
   actions,
   id,
 }) => {
@@ -39,10 +37,10 @@ export const PostsItem: FC<TPostsItemProps> = ({
           {actions}
         </div>
         <Link
-          to={isAuthor ? `/profile` : `/users/${userId}`}
+          to={actions ? `/profile` : `/users/${userId}`}
           className={styles.author}
         >
-          {isAuthor ? "You" : `User ${userId}`}
+          {actions ? "You" : `User ${userId}`}
         </Link>
       </div>
     </li>

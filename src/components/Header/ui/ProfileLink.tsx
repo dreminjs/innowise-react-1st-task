@@ -4,7 +4,7 @@ import styles from "./Header.module.css";
 export const ProfileLink = () => {
   return (
     <Link className={styles.profileLink} to={"/"}>
-      Pro
+      Profile
     </Link>
   );
 };
